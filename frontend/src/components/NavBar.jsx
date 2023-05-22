@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import { StyledNavBar } from "../styles/StyledNavBar";
 
 export const NavBar = () => {
   return (
-    <>
+    <StyledNavBar>
       <p>EventWell</p>
       <ul>
         <li>
@@ -15,6 +16,6 @@ export const NavBar = () => {
           <Link to="/login">Prisijungti</Link>
         </li>
       </ul>
-    </>
+    </StyledNavBar>
   );
 };

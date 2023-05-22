@@ -3,6 +3,11 @@
 /.pnp
 .pnp.js
 
+
+#production
+/build
+
 # misc
 .DS_Store
 .env.local
+.env
