@@ -4,25 +4,37 @@ import { Register } from "./components/Register";
 import { Login } from "./components/Login";
 import { Homepage } from "./components/Homepage";
 import { EventPlanner } from "./components/EventPlanner";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Protected from "./components/Protected";
 import { NavBar } from "./components/NavBar";
+import { AuthenticationContext } from "./components/AuthenticationContext";
 
 function App() {
-  const [isSignedIn, setIsSignedIn] = useState(false);
-  console.log("appjs", isSignedIn);
+  const { setIsSignedIn } = useContext(AuthenticationContext);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    setIsSignedIn(false);
+  };
+
+  // if (isLoading) {
+  //   <div>Page is loading</div>;
+  // }
 
   return (
     <>
-      <NavBar setIsSignedIn={setIsSignedIn} isSignedIn={isSignedIn} />
+      <NavBar onLogOut={handleLogOut} />
       <Routes>
         <Route element={<Homepage />} path="/" />
         <Route element={<Register />} path="/register" />
+        <Route element={<Login setIsLoading={setIsLoading} />} path="/login" />
+
         <Route
-          element={<Login setIsSignedIn={setIsSignedIn} />}
-          path="/login"
-        />
-        <Route element={<Protected isSignedIn={isSignedIn} />}>
+          element={
+            <Protected setIsLoading={setIsLoading} isLoading={isLoading} />
+          }
+        >
           <Route element={<EventPlanner />} path="/events" />
         </Route>
       </Routes>

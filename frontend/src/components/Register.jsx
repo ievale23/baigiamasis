@@ -1,7 +1,9 @@
+import axios from "axios";
 import { useState } from "react";
-import { NavBar } from "./NavBar";
+
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
   const [formData, setFormData] = useState({
@@ -18,10 +20,20 @@ export const Register = () => {
     });
   };
 
+  const navigate = useNavigate();
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:5000/register", formData)
+      .then((response) => navigate("/"))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       <p>Rehister here</p>
-      <Form>
+      <Form onSubmit={handleFormSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
