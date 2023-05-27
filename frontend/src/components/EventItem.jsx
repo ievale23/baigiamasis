@@ -1,12 +1,15 @@
 import axios from "axios";
+import { StyledEventItem } from "../styles/StyledEventPlanner";
+import Button from "react-bootstrap/esm/Button";
 
 export const EventItem = ({ event }) => {
-  const { id, title, date, name, surname, email, phoneNo } = event;
+  const { id, name, surname, email, phoneNo } = event;
 
   const handleDelete = (e) => {
     axios
       .delete(`http://localhost:5000/events/${id}`)
       .then((response) => {
+        alert(`${name} ${surname} nebegali dalyvauti?`);
         window.location.reload();
       })
       .catch((err) => console.log("err", err));
@@ -14,15 +17,15 @@ export const EventItem = ({ event }) => {
 
   return (
     <>
-      <div>
-        <div> {title} </div>
-        <div> {date} </div>
+      <StyledEventItem>
         <div> {name} </div>
         <div> {surname} </div>
         <div> {email} </div>
         <div> {phoneNo} </div>
-        <button onClick={handleDelete}>Delete event</button>
-      </div>
+        <Button variant="warning" size="sm" onClick={handleDelete}>
+          Ištrinti
+        </Button>
+      </StyledEventItem>
     </>
   );
 };

@@ -4,6 +4,8 @@ import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthenticationContext } from "./AuthenticationContext";
 import axios from "axios";
+import { StyledContainer, StyledForm } from "../styles/StyledLogin";
+import { StyledP } from "../styles/StyledRegister";
 
 export const Login = ({ setIsLoading }) => {
   const { setIsSignedIn } = useContext(AuthenticationContext);
@@ -42,39 +44,36 @@ export const Login = ({ setIsLoading }) => {
   };
 
   return (
-    <>
-      <p>Login here</p>
-      <Form onSubmit={handleOnSubmit}>
+    <StyledContainer>
+      <StyledP>Prisijungti</StyledP>
+      <StyledForm onSubmit={handleOnSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
           <Form.Control
+            style={{ width: "250px" }}
             name="email"
             type="email"
-            placeholder="Enter email"
+            placeholder="El. paštas"
             onChange={handleOnChange}
           />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
           <Form.Control
+            style={{ width: "250px" }}
             name="password"
             type="password"
-            placeholder="Password"
+            placeholder="Slaptažodis"
             onChange={handleOnChange}
           />
         </Form.Group>
         <p>
-          Neturi paskyros? <Link to="/register">Tapk partneriu!</Link>{" "}
+          Neturi paskyros? <Link to="/register">Užsiregistruok!</Link>{" "}
         </p>
 
-        <Button variant="primary" type="submit">
-          Submit
+        <Button variant="dark" type="submit">
+          Prisijungti
         </Button>
-      </Form>
-    </>
+      </StyledForm>
+    </StyledContainer>
   );
 };

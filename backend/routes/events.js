@@ -15,8 +15,8 @@ router.post("/events", (req, res) => {
   const { body } = req;
 
   dbConnection.execute(
-    "INSERT INTO events (title, date, name, surname, email, phoneNo) VALUES (?, ?, ?, ?, ?, ?)",
-    [body.title, body.date, body.name, body.surname, body.email, body.phoneNo],
+    "INSERT INTO events (name, surname, email, phoneNo) VALUES ( ?, ?, ?, ?)",
+    [body.name, body.surname, body.email, body.phoneNo],
     (err, result) => defaultCallback(err, result, res)
   );
 });

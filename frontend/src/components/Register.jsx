@@ -4,6 +4,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
+import { StyledContainer, StyledForm, StyledP } from "../styles/StyledRegister";
 
 export const Register = () => {
   const [formData, setFormData] = useState({
@@ -31,56 +32,53 @@ export const Register = () => {
   };
 
   return (
-    <>
-      <p>Rehister here</p>
-      <Form onSubmit={handleFormSubmit}>
+    <StyledContainer>
+      <StyledP>Norint užsiregistruoti užpildykite šią formą:</StyledP>
+      <StyledForm onSubmit={handleFormSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label>El. pašto adresas</Form.Label>
           <Form.Control
             name="email"
             type="email"
-            placeholder="Enter email"
+            placeholder="Įveskite el. paštą"
             onChange={handelOnChange}
           />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Name</Form.Label>
+          <Form.Label>Vardas</Form.Label>
           <Form.Control
             name="name"
             type="text"
-            placeholder="Password"
+            placeholder="Vardas"
             onChange={handelOnChange}
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Surname</Form.Label>
+          <Form.Label>Pavardė</Form.Label>
           <Form.Control
             name="surname"
             type="text"
-            placeholder="Password"
+            placeholder="Pavardė"
             onChange={handelOnChange}
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label>Slaptažodis</Form.Label>
           <Form.Control
             name="password"
             type="password"
-            placeholder="Password"
+            placeholder="Slaptažodis"
             onChange={handelOnChange}
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Submit
+        <Button variant="dark" type="submit">
+          Registruotis
         </Button>
-      </Form>
-    </>
+      </StyledForm>
+    </StyledContainer>
   );
 };

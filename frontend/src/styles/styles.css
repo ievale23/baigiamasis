@@ -1,0 +1,11 @@
+.logo img {
+  height: 75px;
+}
+
+.eventContainer {
+  display: flex;
+  justify-content: space-around;
+  /* align-items: center; */
+  background-color: #fff9f3;
+  height: 800px;
+}

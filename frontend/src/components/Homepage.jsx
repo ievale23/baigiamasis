@@ -1,7 +1,13 @@
+import { StyledContainer } from "../styles/StyledHomepage";
+
 export const Homepage = () => {
   return (
-    <>
-      <h2>Išmanesnis būdas organizuoti jūsų renginius</h2>
-    </>
+    <StyledContainer>
+      <h2>EventWell - išmanesnis būdas organizuoti jūsų renginius</h2>
+      <p>
+        Užsiregistruokite EventWell ir lengvai pildykite renginio dalyvių
+        sąrašus!
+      </p>
+    </StyledContainer>
   );
 };

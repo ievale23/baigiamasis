@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { EventItem } from "./EventItem";
+import { StyledEventList } from "../styles/StyledEventPlanner";
 
 export const EventList = () => {
   const [events, setEvents] = useState(null);
@@ -17,9 +18,13 @@ export const EventList = () => {
     events?.map((event) => <EventItem key={event.id} event={event} />);
 
   return (
-    <>
-      <div>Renginių sąrašas</div>
+    <StyledEventList>
+      <div
+        style={{ fontSize: "20px", padding: "0 0 15px 0", fontWeight: "600" }}
+      >
+        Studijų baigimo vakarėlio dalyviai:
+      </div>
       <div> {mappedEvents()} </div>
-    </>
+    </StyledEventList>
   );
 };
