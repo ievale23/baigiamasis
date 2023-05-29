@@ -1,10 +1,4 @@
-import { Link } from "react-router-dom";
-import {
-  StyledLink,
-  StyledNavBar,
-  StyledUl,
-  linkStyle,
-} from "../styles/StyledNavBar";
+import { StyledLink, StyledNavBar, StyledUl } from "../styles/StyledNavBar";
 import { AuthenticationContext } from "./AuthenticationContext";
 import { useContext } from "react";
 import ewlogo from "../img/ewlogoblack.png";
@@ -16,7 +10,7 @@ export const NavBar = ({ onLogOut }) => {
   return (
     <StyledNavBar>
       <div className="logo">
-        <img src={ewlogo} />
+        <img src={ewlogo} alt="EvenWell company logo" />
       </div>
 
       <div>

@@ -1,10 +1,10 @@
 # baigiamasis
 
-<!-- Built With
+# Built With
 
 React, Node.js, Bootstrap, Express, styled components
 
-Installation
+# Installation
 
 1. Get a free API Key at https://github.com/ievale23/baigiamasis.git
 2. Clone the repo
@@ -12,6 +12,6 @@ Installation
 3. Install NPM packages
    npm install
 
-Usage
+# Usage
 
-This app is used for event planning companies to register, login and add event participants. They also have a posibility to remove participants. -->
+This app is used for event planning companies to register, login and add event participants. They also have a posibility to remove participants.
